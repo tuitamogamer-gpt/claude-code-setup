@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "google-sheets": {
+      "type": "stdio",
+      "command": "uvx",
+      "args": [
+        "mcp-google-sheets@latest"
+      ],
+      "env": {
+        "SERVICE_ACCOUNT_PATH": "$HOME/.config/mcp-google-sheets/service-account.json"
+      }
+    }
+  }
+}

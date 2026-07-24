@@ -1,0 +1,7 @@
+# imagegen-frontend-web
+
+Elite frontend image-direction skill for generating premium, conversion-aware website design references. CRITICAL OUTPUT RULE — generate ONE separate horizontal image FOR EVERY section. A landing page with 8 sections produces 8 images. Never compress multiple sections into one image. Enforces composition variety (not always left-text / right-image), background-image freedom, varied CTAs, varied hero scales (giant / mid / mini minimalist), narrative concept spine, second-read moments, and a…
+
+## Install
+
+Copy this folder to `~/.claude/skills/imagegen-frontend-web/` on the target machine (or run `install.sh` from the repo root). Trigger inside Claude Code with `/imagegen-frontend-web`.

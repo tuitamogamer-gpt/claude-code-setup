@@ -1,0 +1,11 @@
+.DS_Store
+node_modules/
+__pycache__/
+*.pyc
+.venv/
+venv/
+.env
+.env.*
+*.log
+# local NotebookLM state — browser profile + Google auth, never commit
+data/

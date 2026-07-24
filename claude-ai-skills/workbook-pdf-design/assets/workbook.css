@@ -1,0 +1,283 @@
+/* ============================================================
+   WORKBOOK PDF DESIGN — warm cream + orange/yellow blobs
+   Rendered with WeasyPrint. All url() paths are relative to
+   this file (assets/), so keep fonts/ alongside it.
+   ============================================================ */
+
+/* ---------- Fonts ---------- */
+@font-face { font-family:'Mulish'; src:url('fonts/Mulish-Light.ttf');     font-weight:300; }
+@font-face { font-family:'Mulish'; src:url('fonts/Mulish-Regular.ttf');   font-weight:400; }
+@font-face { font-family:'Mulish'; src:url('fonts/Mulish-Medium.ttf');    font-weight:500; }
+@font-face { font-family:'Mulish'; src:url('fonts/Mulish-SemiBold.ttf');  font-weight:600; }
+@font-face { font-family:'Mulish'; src:url('fonts/Mulish-Bold.ttf');      font-weight:700; }
+@font-face { font-family:'Mulish'; src:url('fonts/Mulish-ExtraBold.ttf'); font-weight:800; }
+@font-face { font-family:'Poppins'; src:url('fonts/Poppins-Regular.ttf');  font-weight:400; }
+@font-face { font-family:'Poppins'; src:url('fonts/Poppins-Medium.ttf');   font-weight:500; }
+@font-face { font-family:'Poppins'; src:url('fonts/Poppins-SemiBold.ttf'); font-weight:600; }
+@font-face { font-family:'Poppins'; src:url('fonts/Poppins-Bold.ttf');     font-weight:700; }
+@font-face { font-family:'Poppins'; src:url('fonts/Poppins-ExtraBold.ttf');font-weight:800; }
+
+/* ---------- Design tokens ---------- */
+:root{
+  --paper:#F4EEE2;          /* warm cream page          */
+  --paper-2:#EFE7D7;        /* deeper cream (layering)  */
+  --ink:#2B2722;            /* body charcoal (warm)     */
+  --ink-strong:#1B1712;     /* headings / strong        */
+  --ink-soft:#8A8273;       /* muted / captions / lines labels */
+  --line:#D9D0BE;           /* writing lines / dividers */
+  --accent:#E07C18;         /* primary orange (eyebrow) */
+  --accent-deep:#C96A12;
+  --accent-soft:#F4C76A;    /* soft amber (prompt border) */
+  --badge-1:#F8B12C;        /* number badge — light stop */
+  --badge-2:#EF8C14;        /* number badge — deep stop  */
+  --cover-1:#F2553E;        /* coral   */
+  --cover-2:#E12C77;        /* pink    */
+  --cover-3:#B81E9A;        /* magenta */
+}
+
+/* ---------- Page geometry ---------- */
+@page { size:A4; margin:0; }
+
+*{ box-sizing:border-box; }
+
+html,body{ margin:0; padding:0; }
+
+body{
+  font-family:'Mulish', sans-serif;
+  color:var(--ink);
+  -weasy-hyphens:none;
+}
+
+.workbook{ counter-reset:pageno 0; }
+
+.page{
+  position:relative;
+  width:210mm;
+  height:297mm;
+  background:var(--paper);
+  padding:37mm 24mm 26mm 24mm;
+  overflow:hidden;
+  page-break-after:always;
+  counter-increment:pageno;
+  font-size:11.5pt;
+  line-height:1.62;
+}
+.page:last-child{ page-break-after:auto; }
+
+/* Top-left organic blob, auto on every content page */
+.page::before{
+  content:"";
+  position:absolute; top:0; left:0;
+  width:58mm; height:58mm;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='0.85' y2='1'%3E%3Cstop offset='0' stop-color='%23FFD64A'/%3E%3Cstop offset='0.55' stop-color='%23FAB024'/%3E%3Cstop offset='1' stop-color='%23F2920E'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath fill='url(%23g)' d='M0 0 H162 C180 50 178 108 132 134 C100 153 62 150 0 150 Z'/%3E%3C/svg%3E");
+  background-repeat:no-repeat; background-size:contain;
+  z-index:0;
+}
+/* optional second blob, bottom-right: add class page--accent */
+.page--accent::after{
+  content:"";
+  position:absolute; right:-14mm; bottom:-14mm;
+  width:60mm; height:60mm;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'%3E%3Cdefs%3E%3ClinearGradient id='h' x1='1' y1='1' x2='0.2' y2='0.1'%3E%3Cstop offset='0' stop-color='%23F4920E'/%3E%3Cstop offset='1' stop-color='%23FFD64A'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath fill='url(%23h)' d='M300 300 H120 C100 232 120 168 180 138 C224 116 262 122 300 108 Z'/%3E%3C/svg%3E");
+  background-repeat:no-repeat; background-size:contain;
+  z-index:0;
+}
+
+/* Keep all real content above the blobs */
+.page > *{ position:relative; z-index:1; }
+
+/* ---------- Eyebrow + titles ---------- */
+.eyebrow{
+  font-family:'Mulish'; font-weight:700;
+  font-size:9.5pt; letter-spacing:.22em; text-transform:uppercase;
+  color:var(--accent); margin:0 0 3mm 0;
+}
+.eyebrow--soft{ color:var(--ink-soft); }
+
+.title{
+  font-family:'Mulish'; font-weight:800;
+  font-size:23pt; line-height:1.12; color:var(--ink-strong);
+  margin:0 0 6mm 0; letter-spacing:-.01em;
+}
+.title--lg{ font-size:28pt; }
+
+.subtitle{
+  font-family:'Mulish'; font-weight:600;
+  font-size:13pt; color:var(--ink); margin:0 0 6mm 0;
+}
+
+/* ---------- Body text ---------- */
+p{ margin:0 0 4.5mm 0; }
+.lead{ font-size:12.5pt; color:var(--ink); margin-bottom:7mm; }
+strong,b{ font-weight:800; color:var(--ink-strong); }
+.muted{ color:var(--ink-soft); }
+.label-inline{ font-weight:800; color:var(--ink-strong); }
+
+a{ color:var(--accent-deep); text-decoration:none; }
+
+/* ---------- Numbered steps (orange badge) ---------- */
+ol.steps{ counter-reset:step; list-style:none; margin:0 0 5mm 0; padding:0; }
+ol.steps > li{
+  position:relative;
+  padding-left:13mm;
+  margin:0 0 5mm 0;
+  min-height:9mm;
+}
+ol.steps > li::before{
+  counter-increment:step; content:counter(step);
+  position:absolute; left:0; top:-0.3mm;
+  width:8.6mm; height:8.6mm; border-radius:50%;
+  background-image:linear-gradient(145deg,var(--badge-1) 0%,var(--badge-2) 100%);
+  color:#fff; font-family:'Mulish'; font-weight:800; font-size:12pt;
+  text-align:center; line-height:8.6mm;
+  box-shadow:0 1mm 2.4mm rgba(224,116,18,.30);
+}
+
+/* ---------- Plus bullets ---------- */
+ul.plus{ list-style:none; margin:0 0 5mm 0; padding:0; }
+ul.plus > li{
+  position:relative; padding-left:9.5mm; margin:0 0 3mm 0;
+}
+ul.plus > li::before{
+  content:""; position:absolute; left:0; top:0.4mm;
+  width:5.4mm; height:5.4mm;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='11' fill='%23FBE6C6'/%3E%3Cpath d='M12 6.4 V17.6 M6.4 12 H17.6' stroke='%23E07C18' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat; background-size:contain;
+}
+
+/* plain disc list, warm */
+ul.dash{ list-style:none; margin:0 0 5mm 0; padding:0; }
+ul.dash > li{ position:relative; padding-left:7mm; margin:0 0 2.6mm 0; }
+ul.dash > li::before{
+  content:""; position:absolute; left:0.5mm; top:3mm;
+  width:3mm; height:0.9mm; border-radius:1mm; background:var(--accent);
+}
+
+/* ---------- Writing lines ---------- */
+/* one line every 10mm; set the height to choose how many.
+   5 lines ≈ 50mm, 8 lines ≈ 80mm, etc. */
+.lines{
+  margin:2mm 0 6mm 0;
+  background-image:repeating-linear-gradient(
+     to bottom,
+     var(--line) 0, var(--line) 1.2px,
+     transparent 1.2px, transparent 10mm);
+}
+.lines.r3{ height:30mm; } .lines.r4{ height:40mm; } .lines.r5{ height:50mm; }
+.lines.r6{ height:60mm; } .lines.r7{ height:70mm; } .lines.r8{ height:80mm; }
+.lines.r10{ height:100mm; }
+
+/* a single labelled answer field */
+.field{ margin:0 0 6mm 0; }
+.field__label{ font-weight:700; color:var(--ink-strong); margin:0 0 1.5mm 0; }
+
+/* ---------- Note / callout box ---------- */
+.note{
+  background:#FBF1DE;
+  border:1px solid #F0E2C6;
+  border-left:1.6mm solid var(--accent);
+  border-radius:3mm;
+  padding:5mm 6mm 4mm 6mm;
+  margin:0 0 6mm 0;
+}
+.note__title{
+  font-weight:800; color:var(--ink-strong);
+  font-size:9.5pt; letter-spacing:.12em; text-transform:uppercase;
+  margin:0 0 2mm 0;
+}
+.note p:last-child{ margin-bottom:0; }
+
+/* soft "quote / prompt" emphasis block */
+.prompt{
+  font-weight:700; color:var(--ink-strong);
+  font-size:12pt; line-height:1.5;
+  border-left:1.4mm solid var(--accent-soft); padding-left:6mm;
+  margin:0 0 6mm 0;
+}
+
+/* divider */
+.rule{ border:0; border-top:1px solid var(--line); margin:6mm 0; }
+
+/* ---------- Footer (page number + brand) ---------- */
+.footer{
+  position:absolute; left:24mm; right:24mm; bottom:13mm;
+  display:flex; justify-content:space-between; align-items:center;
+  font-size:8.5pt; color:var(--ink-soft); letter-spacing:.04em;
+}
+.footer__brand{ font-weight:700; text-transform:uppercase; letter-spacing:.16em; }
+.footer__num::after{ content:counter(pageno); }
+.footer__num{ display:inline-flex; align-items:center; }
+.footer__num::before{
+  content:""; width:2mm; height:2mm; border-radius:50%;
+  background:var(--accent); display:inline-block; margin-right:2.4mm;
+}
+
+/* ============================================================
+   COVER PAGE
+   ============================================================ */
+.cover{
+  padding:24mm 24mm 26mm 24mm;
+  color:#fff;
+  background:
+    radial-gradient(125% 110% at 82% 12%, rgba(255,214,120,.40), rgba(255,214,120,0) 46%),
+    radial-gradient(120% 120% at 12% 96%, rgba(150,18,150,.55), rgba(150,18,150,0) 55%),
+    linear-gradient(133deg, var(--cover-1) 0%, var(--cover-2) 54%, var(--cover-3) 100%);
+  display:flex; flex-direction:column;
+}
+.cover::before{ content:none; }      /* no yellow blob on cover */
+.cover__top{ flex:0 0 auto; }
+.cover__spacer{ flex:1 1 auto; }
+.cover__brand{
+  font-family:'Mulish'; font-weight:700; font-size:10.5pt;
+  letter-spacing:.26em; text-transform:uppercase; color:rgba(255,255,255,.86);
+}
+.cover__kicker{
+  font-family:'Mulish'; font-weight:700; font-size:11pt;
+  letter-spacing:.20em; text-transform:uppercase;
+  color:rgba(255,255,255,.92); margin:0 0 5mm 0;
+}
+.cover__title{
+  font-family:'Poppins','Mulish'; font-weight:800;
+  font-size:46pt; line-height:1.03; letter-spacing:-.015em;
+  color:#fff; margin:0 0 6mm 0;
+}
+.cover__subtitle{
+  font-family:'Mulish'; font-weight:500; font-size:14.5pt;
+  line-height:1.45; color:rgba(255,255,255,.94);
+  max-width:135mm; margin:0 0 12mm 0;
+}
+.cover__meta{ display:flex; flex-direction:column; gap:3mm; }
+.cover__meta-row{ font-family:'Mulish'; font-size:12pt; color:rgba(255,255,255,.95); }
+.cover__meta-row b{ color:#fff; font-weight:800; }
+
+/* ============================================================
+   SECTION DIVIDER PAGE
+   ============================================================ */
+.section{
+  display:flex; flex-direction:column; justify-content:center;
+  padding:30mm 26mm;
+}
+.section--accent::after{               /* large warm blob bottom-right */
+  content:""; position:absolute; right:-30mm; bottom:-30mm;
+  width:130mm; height:130mm;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'%3E%3Cdefs%3E%3ClinearGradient id='s' x1='1' y1='1' x2='0.1' y2='0.1'%3E%3Cstop offset='0' stop-color='%23F4920E'/%3E%3Cstop offset='1' stop-color='%23FFD64A'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath fill='url(%23s)' d='M300 300 H92 C70 232 92 150 158 120 C210 96 256 104 300 86 Z'/%3E%3C/svg%3E");
+  background-repeat:no-repeat; background-size:contain; z-index:0;
+}
+.section__index{
+  font-family:'Poppins'; font-weight:700; font-size:12pt;
+  letter-spacing:.24em; text-transform:uppercase; color:var(--accent);
+  margin:0 0 6mm 0;
+}
+.section__num{
+  font-family:'Poppins'; font-weight:800; font-size:80pt;
+  line-height:.9; color:var(--ink-strong); margin:0 0 4mm 0;
+  letter-spacing:-.02em;
+}
+.section__title{
+  font-family:'Poppins','Mulish'; font-weight:700; font-size:30pt;
+  line-height:1.08; color:var(--ink-strong); margin:0 0 5mm 0; max-width:140mm;
+}
+.section__desc{
+  font-family:'Mulish'; font-weight:400; font-size:12.5pt;
+  color:var(--ink); max-width:130mm;
+}

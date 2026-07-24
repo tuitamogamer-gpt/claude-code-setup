@@ -1,0 +1,7 @@
+# firecrawl-crawl
+
+Bulk extract content from an entire website or site section. Use this skill when the user wants to crawl a site, extract all pages from a docs section, bulk-scrape multiple pages following links, or says "crawl", "get all the pages", "extract everything under /docs", "bulk extract", or needs content from many pages on the same site. Handles depth limits, path filtering, and concurrent extraction.
+
+## Install
+
+Copy this folder to `~/.claude/skills/firecrawl-crawl/` (or run `install.sh`). Requires the Firecrawl MCP server + `FIRECRAWL_API_KEY` (see `../../mcp-servers/firecrawl/`).

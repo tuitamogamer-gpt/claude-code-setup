@@ -1,0 +1,7 @@
+# blog-audit
+
+Full-site blog health assessment scanning all blog files for quality scores, orphan pages, topic cannibalization, stale content, and AI citation readiness. Spawns parallel subagents for comprehensive analysis. Produces per-post scores and a prioritized action queue. Use when user says "audit blog", "blog audit", "site audit", "blog health", "audit all posts", "check all blogs".
+
+## Install
+
+Copy this folder to `~/.claude/skills/blog-audit/` on the target machine (or run `install.sh` from the repo root).

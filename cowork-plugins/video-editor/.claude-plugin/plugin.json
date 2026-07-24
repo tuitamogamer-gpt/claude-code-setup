@@ -1,0 +1,9 @@
+{
+  "name": "video-editor",
+  "version": "0.1.0",
+  "description": "Professional video editing with FFmpeg. Remove silences, add zoom effects, enhance audio, and maintain perfect A/V sync.",
+  "author": {
+    "name": "the author"
+  },
+  "keywords": ["video", "editing", "ffmpeg", "audio", "silence-removal"]
+}

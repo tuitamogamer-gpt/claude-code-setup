@@ -1,0 +1,70 @@
+{
+  "mcpServers": {
+    "supadata": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@supadata/mcp"
+      ],
+      "env": {
+        "SUPADATA_API_KEY": "YOUR_SUPADATA_API_KEY"
+      }
+    },
+    "openart": {
+      "type": "http",
+      "url": "https://mcp.openart.ai/mcp"
+    },
+    "project-handoffs": {
+      "type": "stdio",
+      "command": "node",
+      "args": [
+        "$HOME/.claude/mcp-servers/project-handoffs/build/index.js"
+      ],
+      "env": {}
+    },
+    "elevenlabs-scribe": {
+      "type": "stdio",
+      "command": "node",
+      "args": [
+        "$HOME/.claude/mcp-servers/elevenlabs-scribe/dist/index.js"
+      ],
+      "env": {
+        "ELEVENLABS_API_KEY": "YOUR_ELEVENLABS_API_KEY"
+      }
+    },
+    "x-docs": {
+      "type": "http",
+      "url": "https://docs.x.com/mcp"
+    },
+    "higgsfield": {
+      "type": "http",
+      "url": "https://mcp.higgsfield.ai/mcp"
+    },
+    "firecrawl": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "firecrawl-mcp"
+      ],
+      "env": {
+        "FIRECRAWL_API_KEY": "YOUR_FIRECRAWL_API_KEY"
+      }
+    },
+    "paper": {
+      "type": "http",
+      "url": "http://127.0.0.1:29979/mcp"
+    },
+    "google-sheets": {
+      "type": "stdio",
+      "command": "uvx",
+      "args": [
+        "mcp-google-sheets@latest"
+      ],
+      "env": {
+        "SERVICE_ACCOUNT_PATH": "$HOME/.config/mcp-google-sheets/service-account.json"
+      }
+    }
+  }
+}

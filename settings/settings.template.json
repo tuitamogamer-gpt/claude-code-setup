@@ -1,0 +1,29 @@
+{
+  "enabledPlugins": {
+    "understand-anything@understand-anything": true,
+    "taste-skill@taste-skill": true,
+    "last30days@last30days-skill": true
+  },
+  "extraKnownMarketplaces": {
+    "understand-anything": {
+      "source": {
+        "source": "directory",
+        "path": "$HOME/.claude/plugin-sources/Understand-Anything"
+      }
+    },
+    "taste-skill": {
+      "source": {
+        "source": "directory",
+        "path": "$HOME/.claude/plugin-sources/taste-skill"
+      }
+    },
+    "last30days-skill": {
+      "source": {
+        "source": "directory",
+        "path": "$HOME/.claude/plugin-sources/last30days-skill"
+      }
+    }
+  },
+  "skipWorkflowUsageWarning": true,
+  "theme": "dark"
+}

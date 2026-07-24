@@ -1,0 +1,6 @@
+.DS_Store
+node_modules/
+.env
+.env.*
+*.log
+# build/dist are committed on purpose so the server runs right after `npm install`

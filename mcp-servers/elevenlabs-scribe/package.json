@@ -1,0 +1,41 @@
+{
+  "name": "elevenlabs-scribe-mcp-server",
+  "version": "1.3.0",
+  "description": "MCP server for ElevenLabs Scribe (Speech-to-Text). Transcribe local audio/video files or remote URLs on demand, with speaker diarization, subtitles, and docx/pdf/srt export.",
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "elevenlabs-scribe-mcp-server": "dist/index.js"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "tsx watch src/index.ts",
+    "clean": "rm -rf dist"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "elevenlabs",
+    "scribe",
+    "speech-to-text",
+    "transcription"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  }
+}

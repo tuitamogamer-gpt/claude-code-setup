@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "supadata": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@supadata/mcp"
+      ],
+      "env": {
+        "SUPADATA_API_KEY": "YOUR_SUPADATA_API_KEY"
+      }
+    }
+  }
+}

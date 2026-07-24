@@ -1,0 +1,7 @@
+# blog-brief
+
+Generate detailed content briefs for blog posts with target keywords, content outlines, competitive analysis, recommended statistics, image and chart suggestions, word count targets, internal linking architecture, template recommendations (12 types), TL;DR drafts, citation capsule planning, information gain prompts, and multi-channel distribution plans. Briefs are optimized for Google rankings and AI citations (GEO/AEO). Use when user says "content brief", "blog brief", "write brief", "outline…
+
+## Install
+
+Copy this folder to `~/.claude/skills/blog-brief/` on the target machine (or run `install.sh` from the repo root).

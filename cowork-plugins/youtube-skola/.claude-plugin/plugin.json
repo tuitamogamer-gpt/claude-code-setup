@@ -1,0 +1,9 @@
+{
+  "name": "youtube-skola",
+  "version": "1.0.0",
+  "description": "Sveobuhvatan YouTube plugin baziran na metodologiji YouTube Škole - od strategije kanala, thumbnailova i naslova (TNT), preko skriptanja i storytellinga, do monetizacije digitalnim proizvodima. Uključuje ORA framework, CCN model publike, AVPV metriku i kompletne alate za analizu i optimizaciju YouTube kanala.",
+  "author": {
+    "name": "the author"
+  },
+  "keywords": ["youtube", "thumbnails", "titles", "scripts", "monetization", "analytics", "algorithm", "ORA", "TNT", "CCN", "AVPV", "storytelling", "digital-products"]
+}
